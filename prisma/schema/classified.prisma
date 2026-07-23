@@ -1,0 +1,90 @@
+model Classified {
+    id             Int              @id @default(autoincrement())
+    views          Int              @default(0)
+    slug           String           @unique
+    vrm            String? //vehicle registration mark
+    title          String?
+    description    String?
+    year           Int
+    odoReading     Int              @default(0) @map("odo_reading")
+    doors          Int              @default(4)
+    seats          Int              @default(5)
+    price          Int              @default(0)
+    makeId         Int              @map("make_id")
+    make           Make             @relation(fields: [makeId], references: [id])
+    modelId        Int              @map("model_id")
+    model          Model            @relation(fields: [modelId], references: [id])
+    modelVariantId Int?             @map("model_variant_id")
+    modelVariant   ModelVariant?    @relation(fields: [modelVariantId], references: [id])
+    fuelType       FuelType         @default(PETROL)
+    transmission   Transmission     @default(MANUAL)
+    bodyType       BodyType         @default(SEDAN)
+    odoUnit        OdoUnit          @default(KILOMETERS)
+    currency       CurrencyCode     @default(EUR)
+    color          Color            @default(BLACK)
+    status         ClassifiedStatus @default(DRAFT)
+    images         Image[]
+    customers      Customer[]
+    createdAt      DateTime         @default(now())
+    updatedAt      DateTime         @updatedAt
+
+    @@index([makeId, modelId], name: "idx_make_model")
+    @@index([status], name: "idx_status")
+    @@index([price], name: "idx_price")
+    @@map("classifieds")
+}
+
+enum OdoUnit {
+    KILOMETERS
+    MILES
+}
+
+enum CurrencyCode {
+    EUR
+    GBP
+    USD
+}
+
+enum ClassifiedStatus {
+    LIVE
+    DRAFT
+    SOLD
+}
+
+enum FuelType {
+    PETROL
+    DIESEL
+    ELECTRIC
+    HYBRID
+}
+
+enum Transmission {
+    MANUAL
+    AUTOMATIC
+}
+
+enum BodyType {
+    SEDAN
+    HATCHBACK
+    SUV
+    MPV
+    COUPE
+    CONVERTIBLE
+    ROADSTER
+}
+
+enum Color {
+    WHITE
+    BLACK
+    RED
+    BLUE
+    GREEN
+    YELLOW
+    ORANGE
+    PURPLE
+    PINK
+    BROWN
+    GRAY
+    SILVER
+    GOLD
+}

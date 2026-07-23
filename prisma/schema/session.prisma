@@ -1,0 +1,9 @@
+model Session {
+  id           String  @id @default(cuid())
+  sessionToken String  @unique @map("session_token")
+  userId       String
+  user         User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  requires2fa  Boolean @default(true)
+
+  @@map("sessions")
+}
