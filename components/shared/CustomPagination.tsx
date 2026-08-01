@@ -85,7 +85,7 @@ export const CustomPagination = ({
 
   return (
     <PaginationRoot className={styles.paginationRoot}>
-      <PaginationContent className="lg:gap-4">
+      <PaginationContent className="lg:gap-3">
         <PaginationItem>
           <PaginationPrevious
             className={cn(currentPage <= 1 && 'hidden', styles.paginationPrev)}
@@ -131,7 +131,7 @@ export const CustomPagination = ({
                 }}
                 className={cn(
                   styles.paginationLink,
-                  isActive && styles.paginationLinkActive,
+                  styles.paginationLinkActive,
                 )}
                 {...(rel ? { rel } : {})}
               >

@@ -63,7 +63,10 @@ export const RangeSelect = ({
           value={minSelect.value}
           onValueChange={(value) => minSelect.onChange(minSelect.name, value)}
         >
-          <SelectTrigger className="cursor-pointer flex-1" id={minId}>
+          <SelectTrigger
+            className="cursor-pointer flex-1 border-border"
+            id={minId}
+          >
             <SelectValue placeholder="Select" />
           </SelectTrigger>
           <SelectContent>
@@ -80,7 +83,10 @@ export const RangeSelect = ({
           value={maxSelect.value}
           onValueChange={(value) => maxSelect.onChange(maxSelect.name, value)}
         >
-          <SelectTrigger className="cursor-pointer flex-1" id={maxId}>
+          <SelectTrigger
+            className="cursor-pointer flex-1 border-border"
+            id={maxId}
+          >
             <SelectValue placeholder="Select" />
           </SelectTrigger>
           <SelectContent>

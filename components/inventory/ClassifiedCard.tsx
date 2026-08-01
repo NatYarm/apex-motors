@@ -8,7 +8,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 import { HTMLParser } from '../shared/HTMLParser';
-import { buttonVariants } from '../ui/button';
+import { Button, buttonVariants } from '../ui/button';
 import { Card, CardContent } from '../ui/card';
 
 import { FavoriteButton } from './FavoriteButton';
@@ -127,15 +127,13 @@ export const ClassifiedCard = ({
       </CardContent>
 
       <div className="flex flex-col lg:flex-row space-y-2 lg:space-y-0 lg:gap-x-2 px-4 w-full ">
-        <Link
-          href={routes.reserve(classified.slug, MultiStepFormEnum.WELCOME)}
-          className={buttonVariants({
-            variant: 'outline',
-            className: 'w-full lg:w-auto lg:flex-1',
-          })}
-        >
-          Reserve
-        </Link>
+        <Button variant="outline" className="w-full lg:w-auto lg:flex-1">
+          <Link
+            href={routes.reserve(classified.slug, MultiStepFormEnum.WELCOME)}
+          >
+            Reserve
+          </Link>
+        </Button>
         <Link
           href={routes.singleClassified(classified.slug)}
           className={buttonVariants({

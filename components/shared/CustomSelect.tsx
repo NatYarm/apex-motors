@@ -45,7 +45,10 @@ export const CustomSelect = ({
         name={name}
         disabled={disabled}
       >
-        <SelectTrigger className="w-full cursor-pointer" id={label}>
+        <SelectTrigger
+          className="w-full cursor-pointer border-border"
+          id={label}
+        >
           <SelectValue placeholder="Select" />
         </SelectTrigger>
         <SelectContent>
