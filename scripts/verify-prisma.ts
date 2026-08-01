@@ -1,8 +1,8 @@
-import { prisma } from "../lib/prisma";
+import { prisma } from '../lib/prisma';
 
 async function main() {
-  const userCount = await prisma.user.count();
-  console.log(`✅ Connected (${userCount} user(s) in database)`);
+  await prisma.user.count();
+  //console.log(`✅ Connected (${userCount} user(s) in database)`);
 }
 
 main()
