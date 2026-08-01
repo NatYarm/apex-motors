@@ -9,7 +9,8 @@
     "lint": "eslint",
     "test": "node ./node_modules/jest/bin/jest.js",
     "test:watch": "node ./node_modules/jest/bin/jest.js --watch",
-    "test:ci": "node ./node_modules/jest/bin/jest.js --ci --runInBand"
+    "test:ci": "node ./node_modules/jest/bin/jest.js --ci --runInBand",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@faker-js/faker": "^10.5.0",
