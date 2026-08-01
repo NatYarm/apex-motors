@@ -81,8 +81,9 @@ export default async function InventoryPage(props: PageProps) {
               paginationRoot: 'hidden lg:flex  justify-end',
               paginationPrev: '',
               paginationNext: '',
-              paginationLink: 'border-none active:border',
-              paginationLinkActive: '',
+              paginationLink: 'border border-transparent',
+              paginationLinkActive:
+                'data-[active=true]:border-border data-[active=true]:bg-muted',
             }}
           />
 
@@ -97,8 +98,9 @@ export default async function InventoryPage(props: PageProps) {
               paginationRoot: 'flex lg:hidden justify-center pt-4',
               paginationPrev: '',
               paginationNext: '',
-              paginationLink: 'border-none active:border',
-              paginationLinkActive: '',
+              paginationLink: 'border border-transparent',
+              paginationLinkActive:
+                'data-[active=true]:border-border data-[active=true]:bg-muted',
             }}
           />
         </div>
