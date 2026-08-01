@@ -21,8 +21,11 @@ lint:
 
 test:
   stage: test
+  before_script:
+    - apt-get update && apt-get install -y nodejs
+    - bun install --frozen-lockfile
   script:
-    - bun run test:ci
+    - node ./node_modules/jest/bin/jest.js --ci --runInBand
 
 build:
   stage: build
