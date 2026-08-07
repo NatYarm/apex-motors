@@ -25,7 +25,7 @@ export async function seedClassifieds(prisma: PrismaClient) {
 
   const classifiedsData: Prisma.ClassifiedCreateManyInput[] = [];
 
-  for (let i = 0; i < 25; i++) {
+  for (let i = 0; i < 100; i++) {
     const make = faker.helpers.arrayElement(makes);
 
     if (!make.models.length) continue;
@@ -36,7 +36,7 @@ export async function seedClassifieds(prisma: PrismaClient) {
       : null;
 
     const year = faker.date
-      .between({ from: new Date(1925, 0, 1), to: new Date() })
+      .between({ from: new Date(1975, 0, 1), to: new Date() })
       .getFullYear();
 
     const title = [year, make.name, model.name, variant?.name]

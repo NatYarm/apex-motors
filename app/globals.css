@@ -26,7 +26,7 @@
 
   /* Muted */
   --muted: oklch(91.924% 0.00776 242.056);
-  --muted-foreground: oklch(53.845% 0.0152 251.75);
+  --muted-foreground: oklch(51.718% 0.01408 248.2);
 
   /* Hover / Selected */
   --accent: oklch(91.5% 0.02 244);

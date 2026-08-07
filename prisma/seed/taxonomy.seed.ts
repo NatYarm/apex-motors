@@ -135,8 +135,14 @@ export async function seedTaxonomy(prisma: PrismaClient) {
     const models = await prisma.model.findMany({ where: { makeId: make.id } });
 
     for (const model of models) {
+      const modelTaxonomy = result[make.name]?.[model.name];
+
+      if (!modelTaxonomy) {
+        continue;
+      }
+
       for (const [variant, year_range] of Object.entries(
-        result[make.name][model.name].variants,
+        modelTaxonomy.variants,
       )) {
         variantPromises.push(
           prisma.modelVariant.upsert({
