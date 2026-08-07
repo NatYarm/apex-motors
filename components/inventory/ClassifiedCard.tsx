@@ -3,13 +3,13 @@
 import { useState } from 'react';
 
 import { Cog, Fuel, GaugeCircle, Paintbrush2 } from 'lucide-react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 import { HTMLParser } from '../shared/HTMLParser';
 import { Button, buttonVariants } from '../ui/button';
 import { Card, CardContent } from '../ui/card';
+import { ImgixImage } from '../ui/imgix-image';
 
 import { FavoriteButton } from './FavoriteButton';
 
@@ -71,8 +71,8 @@ export const ClassifiedCard = ({
   return (
     <Card className="pt-0">
       <div className="aspect-3/2 relative overflow-hidden">
-        <Link href={routes.singleClassified('slug')}>
-          <Image
+        <Link href={routes.singleClassified(classified.slug)}>
+          <ImgixImage
             placeholder="blur"
             blurDataURL={classified.images[0]?.blurhash}
             src={classified.images[0]?.src}
@@ -98,7 +98,7 @@ export const ClassifiedCard = ({
       </div>
       <CardContent>
         <Link
-          href={routes.singleClassified('slug')}
+          href={routes.singleClassified(classified.slug)}
           className="text-sm md:text-base lg:text-lg font-heading font-bold line-clamp-1 transition-colors hover:text-primary mb-1"
         >
           {classified.title}

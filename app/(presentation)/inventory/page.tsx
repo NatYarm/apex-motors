@@ -1,7 +1,5 @@
 import { Suspense } from 'react';
 
-import { buildClassifiedFilterQuery } from '../../../lib/classified/classified-filter-query';
-
 import { ClassifiedList } from '@/components/inventory/ClassifiedList';
 import { DialogFilters } from '@/components/inventory/DialogFilters';
 import { InventorySkeleton } from '@/components/inventory/InventorySkeleton';
@@ -11,6 +9,7 @@ import { CLASSIFIEDS_PER_PAGE } from '@/config/constants';
 import { routes } from '@/config/routes';
 import { Favorites, PageProps } from '@/config/types';
 import { ClassifiedStatus } from '@/generated/prisma/client';
+import { buildClassifiedFilterQuery } from '@/lib/classified/classified-filter-query';
 import { getInventory } from '@/lib/classified/get-inventory';
 import { prisma } from '@/lib/prisma';
 import { redis } from '@/lib/redis-store';
