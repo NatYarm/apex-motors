@@ -8,7 +8,12 @@ import { PrismaClient } from '@/generated/prisma/client';
 const buildConnectionString = (databaseUrl: string): string => {
   const url = new URL(databaseUrl);
 
-  url.searchParams.set('sslmode', 'verify-full');
+  const isLocalHost =
+    url.hostname === 'localhost' ||
+    url.hostname === '127.0.0.1' ||
+    url.hostname === '::1';
+
+  url.searchParams.set('sslmode', isLocalHost ? 'disable' : 'verify-full');
 
   return url.toString();
 };
