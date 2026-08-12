@@ -3,6 +3,10 @@ import { routes } from './routes';
 export const imageSources = {
   classifiedPlaceholder:
     'https://apex-motors.s3.eu-north-1.amazonaws.com/uploads/classified-placeholder.jpeg',
+  carLineup:
+    'https://apex-motors.s3.eu-north-1.amazonaws.com/uploads/car-lineup.webp',
+  featuresSection:
+    'https://apex-motors.s3.eu-north-1.amazonaws.com/uploads/features-section.jpg',
 };
 
 export const CLASSIFIEDS_PER_PAGE = 9;

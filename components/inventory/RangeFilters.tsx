@@ -17,6 +17,7 @@ interface RangeFilterProps extends FilterProps {
   increment?: number;
   thousandSeparator?: boolean;
   currency?: { currencyCode: CurrencyCode };
+  appearance?: 'default' | 'light';
 }
 
 type RangeFilterOptions = {
@@ -112,6 +113,7 @@ export const RangeFilters = ({
         onChange: handleChange,
         options: options.maxOptions,
       }}
+      appearance="light"
     />
   );
 };

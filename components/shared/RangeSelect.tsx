@@ -12,6 +12,7 @@ import {
 } from '../ui/select';
 
 import { FilterOptions } from '@/config/types';
+import { cn } from '@/lib/utils';
 
 interface SelectType {
   name: string;
@@ -24,15 +25,18 @@ interface RangeSelectProps {
   label: string;
   minSelect: SelectType;
   maxSelect: SelectType;
+  appearance?: 'default' | 'light';
 }
 
 export const RangeSelect = ({
   label,
   minSelect,
   maxSelect,
+  appearance = 'default',
 }: RangeSelectProps) => {
   const minId = `${label}-${minSelect.name}`;
   const maxId = `${label}-${maxSelect.name}`;
+  const isLight = appearance === 'light';
 
   const uniqueMinOptions = useMemo(
     () =>
@@ -54,7 +58,11 @@ export const RangeSelect = ({
     <>
       <Label
         htmlFor={minId}
-        className="text-sm font-semibold mb-1 text-muted-foreground"
+
+        className={cn(
+          'text-sm font-semibold text-muted-foreground mb-1',
+          isLight && 'dark:text-muted',
+        )}
       >
         {label}
       </Label>
@@ -64,15 +72,35 @@ export const RangeSelect = ({
           onValueChange={(value) => minSelect.onChange(minSelect.name, value)}
         >
           <SelectTrigger
-            className="cursor-pointer flex-1 border-border"
+            className={cn(
+              'flex-1 cursor-pointer border-border',
+              isLight &&
+                'dark:bg-white dark:text-muted  dark:hover:bg-slate-50',
+            )}
             id={minId}
           >
             <SelectValue placeholder="Select" />
           </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="" className="h-7" />
+          <SelectContent
+            className={cn(isLight && 'dark:bg-white dark:text-muted')}
+          >
+            <SelectItem
+              value=""
+              className={cn(
+                'h-7 cursor-pointer',
+                isLight && 'dark:bg-white dark:focus:bg-slate-100',
+              )}
+            />
             {uniqueMinOptions.map((opt) => (
-              <SelectItem key={opt.value} value={String(opt.value)}>
+              <SelectItem
+                key={opt.value}
+                value={String(opt.value)}
+                className={cn(
+                  'cursor-pointer',
+                  isLight &&
+                    ' dark:focus:bg-slate-100 dark:focus:**:text-muted',
+                )}
+              >
                 {opt.label}
               </SelectItem>
             ))}
@@ -84,15 +112,35 @@ export const RangeSelect = ({
           onValueChange={(value) => maxSelect.onChange(maxSelect.name, value)}
         >
           <SelectTrigger
-            className="cursor-pointer flex-1 border-border"
+            className={cn(
+              'flex-1 cursor-pointer border-border',
+              isLight &&
+                'dark:bg-white dark:text-muted  dark:hover:bg-slate-50',
+            )}
             id={maxId}
           >
             <SelectValue placeholder="Select" />
           </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="" className="h-7" />
+          <SelectContent
+            className={cn(isLight && 'dark:bg-white dark:text-muted')}
+          >
+            <SelectItem
+              value=""
+              className={cn(
+                'h-7 cursor-pointer',
+                isLight && 'dark:bg-white dark:focus:bg-slate-100',
+              )}
+            />
             {uniqueMaxOptions.map((opt) => (
-              <SelectItem key={opt.value} value={String(opt.value)}>
+              <SelectItem
+                key={opt.value}
+                value={String(opt.value)}
+                className={cn(
+                  'cursor-pointer',
+                  isLight &&
+                    ' dark:focus:bg-slate-100 dark:focus:**:text-muted',
+                )}
+              >
                 {opt.label}
               </SelectItem>
             ))}

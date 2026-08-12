@@ -2,15 +2,6 @@
 
 import { useEffect, useState } from 'react';
 
-// import { Label } from '../ui/label';
-// import {
-//   Select,
-//   SelectContent,
-//   SelectItem,
-//   SelectTrigger,
-//   SelectValue,
-// } from '../ui/select';
-
 import { CustomSelect } from '../shared/CustomSelect';
 
 import { endpoints } from '@/config/endpoints';
@@ -20,7 +11,8 @@ import { api } from '@/lib/api-client';
 export const TaxonomyFilters = ({
   handleChange,
   searchParams,
-}: FilterProps) => {
+  appearance = 'default',
+}: FilterProps & { appearance?: 'default' | 'light' }) => {
   const [taxonomy, setTaxonomy] = useState<TaxonomyResponse>({
     makes: [],
     models: [],
@@ -55,6 +47,7 @@ export const TaxonomyFilters = ({
         value={searchParams?.make as string}
         options={taxonomy.makes}
         onChange={handleChange}
+        appearance={appearance}
       />
       <CustomSelect
         label="Model"
@@ -63,6 +56,7 @@ export const TaxonomyFilters = ({
         options={taxonomy.models}
         onChange={handleChange}
         disabled={!taxonomy.models.length}
+        appearance={appearance}
       />
       <CustomSelect
         label="Model Variant"
@@ -71,6 +65,7 @@ export const TaxonomyFilters = ({
         options={taxonomy.modelVariants}
         onChange={handleChange}
         disabled={!taxonomy.modelVariants.length}
+        appearance={appearance}
       />
     </>
   );

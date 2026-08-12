@@ -89,8 +89,8 @@ export const ClassifiedCarousel = ({ images }: ClassifiedCarouselProps) => {
           ))}
         </Swiper>
         <SwiperButtons
-          prevClassName="left-4 bg-white/80"
-          nextClassName="right-4 bg-white/80"
+          prevClassName="left-4 bg-border"
+          nextClassName="right-4 bg-border"
         />
       </div>
 

@@ -22,11 +22,11 @@ export const SwiperButtons = ({
         size="icon"
         className={cn(
           prevClassName,
-          'swiper-button-prev absolute top-1/2 -translate-y-1/2 active:-translate-y-1/2! z-10 flex items-center rounded-full shadow-sm transition-transform hover:bg-gray-200! hover:shadow-md active:scale-95 active:shadow-sm',
+          'swiper-button-prev absolute top-1/2 -translate-y-1/2 active:-translate-y-1/2! z-10 flex items-center rounded-full shadow-sm transition-transform  dark:hover:bg-gray-600 hover:shadow-md active:scale-95 active:shadow-sm',
         )}
         onClick={(e) => e.stopPropagation()}
       >
-        <ChevronLeft className="h-8 w-8 text-black" />
+        <ChevronLeft className="h-8 w-8 text-black dark:text-white" />
       </Button>
 
       <Button
@@ -36,11 +36,11 @@ export const SwiperButtons = ({
         size="icon"
         className={cn(
           nextClassName,
-          'swiper-button-next absolute top-1/2 -translate-y-1/2 active:-translate-y-1/2! z-10 flex items-center rounded-full shadow-sm transition-transform hover:bg-gray-200! hover:shadow-md active:scale-95 active:shadow-sm',
+          'swiper-button-next absolute top-1/2 -translate-y-1/2 active:-translate-y-1/2! z-10 flex items-center rounded-full shadow-sm transition-transform dark:hover:bg-gray-600 hover:shadow-md active:scale-95 active:shadow-sm',
         )}
         onClick={(e) => e.stopPropagation()}
       >
-        <ChevronRight className="h-8 w-8 text-black" />
+        <ChevronRight className="h-8 w-8 text-black dark:text-white" />
       </Button>
     </>
   );

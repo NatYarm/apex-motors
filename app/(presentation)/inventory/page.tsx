@@ -8,36 +8,24 @@ import { CustomPagination } from '@/components/shared/CustomPagination';
 import { CLASSIFIEDS_PER_PAGE } from '@/config/constants';
 import { routes } from '@/config/routes';
 import { Favorites, PageProps } from '@/config/types';
-import { ClassifiedStatus } from '@/generated/prisma/client';
 import { buildClassifiedFilterQuery } from '@/lib/classified/classified-filter-query';
 import { getInventory } from '@/lib/classified/get-inventory';
-import { prisma } from '@/lib/prisma';
+import { getInventoryCount } from '@/lib/classified/get-inventory-count';
+import { getInventoryMinMaxValues } from '@/lib/classified/get-inventory-min-max-values';
 import { redis } from '@/lib/redis-store';
 import { getSourceId } from '@/lib/source-id';
 
 export default async function InventoryPage(props: PageProps) {
   const searchParams = await props.searchParams;
   const where = buildClassifiedFilterQuery(searchParams);
+
   const classifieds = getInventory(searchParams, where);
-  const count = await prisma.classified.count({ where });
+  const count = await getInventoryCount(where);
+  const minMaxResult = await getInventoryMinMaxValues();
 
   const sourceId = await getSourceId();
   const favorites = await redis.get<Favorites>(sourceId ?? '');
   const totalPages = Math.ceil(count / CLASSIFIEDS_PER_PAGE);
-
-  const minMaxResult = await prisma.classified.aggregate({
-    where: { status: ClassifiedStatus.LIVE },
-    _min: {
-      year: true,
-      price: true,
-      odoReading: true,
-    },
-    _max: {
-      year: true,
-      price: true,
-      odoReading: true,
-    },
-  });
 
   return (
     <div className="flex">
