@@ -41,6 +41,7 @@ export const HomepageFilters = ({
         increment={100000}
         thousandSeparator
         currency={{ currencyCode: 'EUR' }}
+        appearance="light"
       />
     </>
   );

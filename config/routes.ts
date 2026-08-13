@@ -5,8 +5,17 @@ export const routes = {
   singleClassified: (slug: string) => `/inventory/${slug}`,
   reserve: (slug: string, step: MultiStepFormEnum) =>
     `/inventory/${slug}/reserve?step=${step}`,
+  success: (slug: string) => `/inventory/${slug}/success`,
   notAvailable: (slug: string) => `/inventory/${slug}/not-available`,
   favorites: '/favorites',
   inventory: '/inventory',
   signIn: '/signIn',
+  admin: {
+    dashboard: '/admin/dashboard',
+    classifieds: '/admin/classifieds',
+    editClassified: (id: number) => `/admin/classifieds/edit/${id}`,
+    customers: '/admin/customers',
+    editCustomer: (id: number) => `/admin/customers/edit/${id}`,
+    settings: '/admin/settings',
+  },
 };

@@ -3,7 +3,7 @@ import { prisma } from '../prisma';
 import { CLASSIFIEDS_PER_PAGE } from '@/config/constants';
 import { AwaitedPageProps } from '@/config/types';
 import { Prisma } from '@/generated/prisma/client';
-import { PageSchema } from '@/schemas/page-schema';
+import { PageSchema } from '@/schemas/page.schema';
 
 export const getInventory = async (
   searchParams: AwaitedPageProps['searchParams'],

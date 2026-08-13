@@ -36,6 +36,7 @@ export const RangeFilters = ({
   currency,
   handleChange,
   searchParams,
+  appearance = 'default',
 }: RangeFilterProps) => {
   const initialState = useMemo(() => {
     const state: FilterOptions<string, number> = [];
@@ -113,7 +114,7 @@ export const RangeFilters = ({
         onChange: handleChange,
         options: options.maxOptions,
       }}
-      appearance="light"
+      appearance={appearance}
     />
   );
 };

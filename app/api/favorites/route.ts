@@ -1,18 +1,16 @@
 import { revalidatePath } from 'next/cache';
 import { NextRequest, NextResponse } from 'next/server';
-import z from 'zod';
 
 import { routes } from '@/config/routes';
 import { Favorites } from '@/config/types';
 import { redis } from '@/lib/redis-store';
 import { setSourceId } from '@/lib/source-id';
-
-const validateSchema = z.object({ id: z.number().int() });
+import { validateIdSchema } from '@/schemas/id.schema';
 
 export const POST = async (req: NextRequest) => {
   const body = await req.json();
 
-  const { data, error } = validateSchema.safeParse(body);
+  const { data, error } = validateIdSchema.safeParse(body);
 
   if (!data) {
     return NextResponse.json({ error: error?.message }, { status: 400 });

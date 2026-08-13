@@ -1,4 +1,4 @@
-import { Prisma } from '@/generated/prisma/client';
+import type { Prisma } from '@/generated/prisma/client';
 
 type Params = {
   [x: string]: string | string[];
@@ -55,4 +55,8 @@ type SidebarMinMaxValues = {
 
 export interface SidebarProps extends AwaitedPageProps {
   minMaxValues: SidebarMinMaxValues;
+}
+
+export interface MultiStepFormComponentProps extends AwaitedPageProps {
+  classified: Prisma.ClassifiedGetPayload<{ include: { make: true } }>;
 }

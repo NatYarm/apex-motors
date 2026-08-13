@@ -24,10 +24,10 @@ const Toaster = ({ theme: themeProp, ...props }: ToasterProps) => {
       theme={resolvedTheme}
       className="toaster group"
       icons={{
-        success: <CircleCheckIcon className="size-4" />,
+        success: <CircleCheckIcon className="size-4 text-success" />,
         info: <InfoIcon className="size-4" />,
-        warning: <TriangleAlertIcon className="size-4" />,
-        error: <OctagonXIcon className="size-4" />,
+        warning: <TriangleAlertIcon className="size-4 text-yellow-500" />,
+        error: <OctagonXIcon className="size-4 text-destructive" />,
         loading: <Loader2Icon className="size-4 animate-spin" />,
       }}
       style={

@@ -7,7 +7,7 @@ import {
 
 import { CustomerStatus } from '@/generated/prisma/enums';
 import { prisma } from '@/lib/prisma';
-import { SubscribeSchema } from '@/schemas/subscribe-schema';
+import { SubscribeSchema } from '@/schemas/subscribe.schema';
 
 type SubscribeActionState = {
   success: boolean;

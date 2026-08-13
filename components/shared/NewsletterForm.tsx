@@ -14,7 +14,7 @@ import { Input } from '../ui/input';
 import { AutoDismissMessage } from './AutoDismissMessage';
 
 import { subscribeAction } from '@/app/_actions/subscribe';
-import { SubscribeSchema } from '@/schemas/subscribe-schema';
+import { SubscribeSchema } from '@/schemas/subscribe.schema';
 
 type SubscribeFormValues = z.infer<typeof SubscribeSchema>;
 

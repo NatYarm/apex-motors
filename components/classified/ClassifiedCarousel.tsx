@@ -10,7 +10,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { SwiperButtons } from '../shared/SwiperButtons';
 import { ImgixImage } from '../ui/imgix-image';
 
-import { Image as PrismaImage } from '@/generated/prisma/client';
+import type { Image as PrismaImage } from '@/generated/prisma/client';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
 import 'swiper/css/virtual';

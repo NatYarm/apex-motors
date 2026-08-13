@@ -18,7 +18,7 @@ import { ClassifiedCarousel } from './ClassifiedCarousel';
 
 import { routes } from '@/config/routes';
 import { MultiStepFormEnum } from '@/config/types';
-import { Prisma } from '@/generated/prisma/client';
+import type { Prisma } from '@/generated/prisma/client';
 import {
   formatBodyType,
   formatColor,

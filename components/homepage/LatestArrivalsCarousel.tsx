@@ -6,7 +6,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { ClassifiedCard } from '../inventory/ClassifiedCard';
 import { SwiperButtons } from '../shared/SwiperButtons';
 
-import { Prisma } from '@/generated/prisma/client';
+import type { Prisma } from '@/generated/prisma/client';
 import 'swiper/css';
 
 interface CarouselProps {

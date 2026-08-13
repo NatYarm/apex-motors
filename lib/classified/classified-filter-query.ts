@@ -9,7 +9,7 @@ import {
   OdoUnit,
   Transmission,
 } from '@/generated/prisma/enums';
-import { ClassifiedFiterSchema } from '@/schemas/classified-filter-schema';
+import { ClassifiedFiterSchema } from '@/schemas/classified.schema';
 
 export const buildClassifiedFilterQuery = (
   searchParams: AwaitedPageProps['searchParams'] | undefined,
