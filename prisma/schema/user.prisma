@@ -1,11 +1,16 @@
 model User {
-  id             String    @id @default(cuid())
-  email          String    @unique
-  name           String?
-  hashedPassword String    @map("hashed_password")
-  sessions       Session[]
-  createdAt      DateTime  @default(now())
-  updatedAt      DateTime  @updatedAt
+  id               String      @id
+  name             String
+  email            String
+  emailVerified    Boolean     @default(false)
+  image            String?
+  createdAt        DateTime    @default(now())
+  updatedAt        DateTime    @updatedAt
+  twoFactorEnabled Boolean?    @default(false)
+  sessions         Session[]
+  accounts         Account[]
+  twofactors       TwoFactor[]
 
-  @@map("users")
+  @@unique([email])
+  @@map("user")
 }

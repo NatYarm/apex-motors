@@ -11,6 +11,10 @@ export const env = createEnv({
     UPSTASH_REDIS_REST_TOKEN: z.string(),
     S3_BUCKET_ACCESS_KEY: z.string(),
     S3_BUCKET_SECRET_KEY: z.string(),
+    BETTER_AUTH_URL: z.url(),
+    RESEND_API_KEY: z.string(),
+    EMAIL_FROM: z.string(),
+    EMAIL_TO: z.string(),
   },
   client: {
     NEXT_PUBLIC_APP_URL: z.string(),
@@ -24,6 +28,10 @@ export const env = createEnv({
     NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL,
     S3_BUCKET_ACCESS_KEY: process.env.S3_BUCKET_ACCESS_KEY,
     S3_BUCKET_SECRET_KEY: process.env.S3_BUCKET_SECRET_KEY,
+    BETTER_AUTH_URL: process.env.BETTER_AUTH_URL,
     NEXT_PUBLIC_IMGIX_URL: process.env.NEXT_PUBLIC_IMGIX_URL,
+    RESEND_API_KEY: process.env.RESEND_API_KEY,
+    EMAIL_FROM: process.env.EMAIL_FROM,
+    EMAIL_TO: process.env.EMAIL_TO,
   },
 });
