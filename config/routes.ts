@@ -9,7 +9,9 @@ export const routes = {
   notAvailable: (slug: string) => `/inventory/${slug}/not-available`,
   favorites: '/favorites',
   inventory: '/inventory',
-  signIn: '/signIn',
+  signIn: '/auth/sign-in',
+  resetPassword: '/auth/reset-password',
+  twoFactor: '/auth/2fa',
   admin: {
     dashboard: '/admin/dashboard',
     classifieds: '/admin/classifieds',
