@@ -1,5 +1,4 @@
 import { imageSources } from '@/config/constants';
-import { imgixLoader } from '@/lib/imgix-loader';
 
 export const FeaturesSection = () => {
   return (
@@ -22,7 +21,7 @@ export const FeaturesSection = () => {
         <div
           className="mx-auto max-w-7xl h-80 bg-cover bg-no-repeat bg-center xl:rouned-t-xl shadow-2xl"
           style={{
-            backgroundImage: `url(${imgixLoader({ src: imageSources.featuresSection, width: 1280, quality: 100 })})`,
+            backgroundImage: `url(${imageSources.featuresSection})`,
           }}
         />
         <div aria-hidden="true" className="relative hidden xl:block">

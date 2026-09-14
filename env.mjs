@@ -18,7 +18,6 @@ export const env = createEnv({
   },
   client: {
     NEXT_PUBLIC_APP_URL: z.string(),
-    NEXT_PUBLIC_IMGIX_URL: z.url(),
   },
   runtimeEnv: {
     NODE_ENV: process.env.NODE_ENV,
@@ -29,7 +28,6 @@ export const env = createEnv({
     S3_BUCKET_ACCESS_KEY: process.env.S3_BUCKET_ACCESS_KEY,
     S3_BUCKET_SECRET_KEY: process.env.S3_BUCKET_SECRET_KEY,
     BETTER_AUTH_URL: process.env.BETTER_AUTH_URL,
-    NEXT_PUBLIC_IMGIX_URL: process.env.NEXT_PUBLIC_IMGIX_URL,
     RESEND_API_KEY: process.env.RESEND_API_KEY,
     EMAIL_FROM: process.env.EMAIL_FROM,
     EMAIL_TO: process.env.EMAIL_TO,

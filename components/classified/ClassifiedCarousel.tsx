@@ -3,18 +3,17 @@
 import { useCallback, useState } from 'react';
 
 import FsLightbox from 'fslightbox-react';
+import NextImage from 'next/image';
 import { type Swiper as SwiperType } from 'swiper';
 import { EffectFade, Navigation, Thumbs, Virtual } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import { SwiperButtons } from '../shared/SwiperButtons';
-import { ImgixImage } from '../ui/imgix-image';
 
 import type { Image as PrismaImage } from '@/generated/prisma/client';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
 import 'swiper/css/virtual';
-import { imgixLoader } from '@/lib/imgix-loader';
 
 interface ClassifiedCarouselProps {
   images: PrismaImage[];
@@ -39,9 +38,7 @@ export const ClassifiedCarousel = ({ images }: ClassifiedCarouselProps) => {
     });
   }, [activeIndex, lightboxController.toggler]);
 
-  const sources = images.map((image) =>
-    imgixLoader({ src: image.src, width: 1200, quality: 100 }),
-  );
+  const sources = images.map((image) => image.src);
 
   return (
     <>
@@ -75,7 +72,8 @@ export const ClassifiedCarousel = ({ images }: ClassifiedCarouselProps) => {
         >
           {images.map((image, idx) => (
             <SwiperSlide key={image.id} virtualIndex={idx}>
-              <ImgixImage
+              <NextImage
+                fetchPriority="high"
                 blurDataURL={image.blurhash}
                 placeholder="blur"
                 src={image.src}
@@ -107,7 +105,8 @@ export const ClassifiedCarousel = ({ images }: ClassifiedCarouselProps) => {
             key={image.id}
             className="relative mt-2 h-fit w-full cursor-grab"
           >
-            <ImgixImage
+            <NextImage
+              fetchPriority="high"
               placeholder="blur"
               src={image.src}
               alt={image.alt}

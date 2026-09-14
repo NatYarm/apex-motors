@@ -10,7 +10,6 @@ import { AwaitedPageProps } from '@/config/types';
 import { buildClassifiedFilterQuery } from '@/lib/classified/classified-filter-query';
 import { getInventoryCount } from '@/lib/classified/get-inventory-count';
 import { getInventoryMinMaxValues } from '@/lib/classified/get-inventory-min-max-values';
-import { imgixLoader } from '@/lib/imgix-loader';
 
 export const HeroSection = async ({ searchParams }: AwaitedPageProps) => {
   const totalFiltersApplied = Object.keys(searchParams || {}).length;
@@ -25,7 +24,7 @@ export const HeroSection = async ({ searchParams }: AwaitedPageProps) => {
     <section
       className="relative flex items-center justify-center h-[calc(100vh-4rem)] bg-cover bg-center"
       style={{
-        backgroundImage: `url(${imgixLoader({ src: imageSources.carLineup, width: 1280, quality: 100 })})`,
+        backgroundImage: `url(${imageSources.carLineup})`,
       }}
     >
       <div className="absolute inset-0 bg-black opacity-65" />
