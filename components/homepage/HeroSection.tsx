@@ -22,7 +22,7 @@ export const HeroSection = async ({ searchParams }: AwaitedPageProps) => {
 
   return (
     <section
-      className="relative flex items-center justify-center h-[calc(100vh-4rem)] bg-cover bg-center"
+      className="relative flex items-center justify-center h-[calc(100vh-4rem)] bg-cover bg-center max-w-7xl mx-auto"
       style={{
         backgroundImage: `url(${imageSources.carLineup})`,
       }}

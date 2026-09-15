@@ -27,7 +27,7 @@ export const SignOut = () => {
       type="button"
       onClick={handleSignOut}
       disabled={isPending}
-      className="flex items-center gap-2 max-w-2xs w-full"
+      className="flex items-center gap-2"
     >
       {isPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
       Sign out

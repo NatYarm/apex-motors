@@ -29,7 +29,7 @@ export async function PublicHeader() {
   });
 
   return (
-    <header className="flex-between h-16 px-4 bg-transparent gap-x-6">
+    <header className="flex-between h-18 px-4 bg-transparent gap-x-6 max-w-7xl w-full mx-auto">
       <div className="flex items-center flex-1 ">
         <Link href={routes.home} className="flex items-center gap-2">
           <Image
@@ -50,7 +50,7 @@ export async function PublicHeader() {
           />
         </Link>
       </div>
-      <nav className="hidden md:flex">
+      <nav className="hidden md:block">
         {navLinks.map((link) => (
           <Link key={link.id} className="navLink" href={link.href}>
             {link.label}
@@ -58,7 +58,7 @@ export async function PublicHeader() {
         ))}
       </nav>
 
-      <div className="flex-center gap-3">
+      <div className="flex-center md:flex gap-x-6 hidden">
         <ThemeToggle />
         {session ? (
           <div className="items-center md:flex gap-x-6 hidden">
