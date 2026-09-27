@@ -14,6 +14,7 @@ import Link from 'next/link';
 
 import { ActiveLink } from '@/components/shared/ActiveLink';
 import { routes } from '@/config/routes';
+import { cn } from '@/lib/utils';
 
 const navigation = [
   {
@@ -76,7 +77,12 @@ export const AdminSidebar = () => {
     >
       <div className="flex flex-col grow px-4">
         <Link href={routes.home}>
-          <div className="relative h-15 w-full">
+          <div
+            className={cn(
+              isSidebarExpanded ? 'my-4' : 'my-1',
+              'relative h-16 w-full',
+            )}
+          >
             <AnimatePresence initial={false} mode="wait">
               {isSidebarExpanded ? (
                 <motion.div
@@ -107,7 +113,7 @@ export const AdminSidebar = () => {
                 >
                   <Image
                     src="/logo.png"
-                    fill={true}
+                    fill
                     className="object-contain object-left"
                     alt="Apex Motors Mobile Logo"
                   />
@@ -125,7 +131,7 @@ export const AdminSidebar = () => {
                 className="flex items-center p-2 rounded-lg transition-colors duration-200 w-full cursor-pointer"
               >
                 <div className="flex items-center justify-center">
-                  <item.icon aria-hidden="true" className="h-6 w-6 shrinnk-0" />
+                  <item.icon aria-hidden="true" className="h-6 w-6 shrink-0" />
                   <motion.span
                     variants={menuTextVariants}
                     animate={isSidebarExpanded ? 'expanded' : 'collapsed'}

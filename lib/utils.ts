@@ -197,3 +197,9 @@ export const formatDate = (date: string, time: string) => {
 
   return parsedDate;
 };
+
+export function calculatePercentageChange(cur: number, prev: number) {
+  if (prev === 0) return cur > 0 ? 100 : cur < 0 ? -100 : 0;
+
+  return ((cur - prev) / Math.abs(prev)) * 100;
+}

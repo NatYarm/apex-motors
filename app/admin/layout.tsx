@@ -12,7 +12,7 @@ export default async function AdminLayout({ children }: PropsWithChildren) {
         <AdminSidebar />
         <div className="flex flex-col flex-1 overflow-hidden">
           <AdminHeader />
-          <main className="admin-scrollbar flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-6 overflow-auto">
+          <main className="admin-scrollbar flex flex-1 flex-col gap-4 p-4 md:gap-8 md:px-6 overflow-auto">
             {children}
           </main>
         </div>
