@@ -14,6 +14,6 @@ export const CLASSIFIEDS_PER_PAGE = 9;
 export const navLinks = [
   { id: 1, href: routes.home, label: 'Home' },
   { id: 2, href: routes.inventory, label: 'Inventory' },
-  // {id: 3, href: routes.home, label: 'Home'},
-  // {id: 4, href: routes.home, label: 'Home'},
 ];
+
+export const MAX_IMAGE_SIZE = 20 * 1000 * 1000; //2mb

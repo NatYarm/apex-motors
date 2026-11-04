@@ -1,6 +1,7 @@
 import { clsx, type ClassValue } from 'clsx';
 import { format, parse } from 'date-fns';
 import debounce from 'debounce';
+import prettyBytes from 'pretty-bytes';
 import { twMerge } from 'tailwind-merge';
 
 import {
@@ -203,3 +204,11 @@ export function calculatePercentageChange(cur: number, prev: number) {
 
   return ((cur - prev) / Math.abs(prev)) * 100;
 }
+
+export const convertToMb = (bytes: number) => {
+  return prettyBytes(bytes, {
+    bits: false,
+    maximumFractionDigits: 1,
+    space: false,
+  });
+};

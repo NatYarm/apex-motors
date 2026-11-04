@@ -1,13 +1,12 @@
-import { headers } from 'next/headers';
 import { redirect } from 'next/navigation';
 
 import { SignOut } from '@/components/auth/SignOut';
 import { SettingsPageContent } from '@/components/settings/SettingsPageContent';
 import { routes } from '@/config/routes';
-import { auth } from '@/lib/auth';
+import { getSession } from '@/lib/dal';
 
 export default async function SettingsPage() {
-  const session = await auth.api.getSession({ headers: await headers() });
+  const session = await getSession();
 
   if (session == null) return redirect(routes.signIn);
 

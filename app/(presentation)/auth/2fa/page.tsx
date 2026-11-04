@@ -1,14 +1,13 @@
-import { headers } from 'next/headers';
 import { redirect } from 'next/navigation';
 
 import { BackupCodeTab } from '@/components/auth/BackupCodeTab';
 import { TotpForm } from '@/components/auth/TotpForm';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { auth } from '@/lib/auth';
+import { getSession } from '@/lib/dal';
 
 export default async function TwoFactorPage() {
-  const session = await auth.api.getSession({ headers: await headers() });
+  const session = await getSession();
 
   if (session != null) return redirect('/');
 

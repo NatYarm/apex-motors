@@ -1,14 +1,11 @@
-import { headers } from 'next/headers';
 import { NextRequest, NextResponse } from 'next/server';
 
 import { routes } from './config/routes';
 
-import { auth } from '@/lib/auth';
+import { getSession } from '@/lib/dal';
 
 export async function proxy(request: NextRequest) {
-  const session = await auth.api.getSession({
-    headers: await headers(),
-  });
+  const session = await getSession(request.headers);
 
   if (!session) {
     return NextResponse.redirect(new URL(routes.signIn, request.url));

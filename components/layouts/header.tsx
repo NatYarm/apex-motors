@@ -1,5 +1,4 @@
 import { HeartIcon, MenuIcon } from 'lucide-react';
-import { headers } from 'next/headers';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -15,7 +14,7 @@ import {
 import { navLinks } from '@/config/constants';
 import { routes } from '@/config/routes';
 import { Favorites } from '@/config/types';
-import { auth } from '@/lib/auth';
+import { getSession } from '@/lib/dal';
 import { redis } from '@/lib/redis-store';
 import { getSourceId } from '@/lib/source-id';
 import logoLight from '@/public/logo-light.png';
@@ -24,9 +23,7 @@ import logoDark from '@/public/logo.png';
 export async function PublicHeader() {
   const sourceId = await getSourceId();
   const favorites = await redis.get<Favorites>(sourceId ?? '');
-  const session = await auth.api.getSession({
-    headers: await headers(),
-  });
+  const session = await getSession();
 
   return (
     <header className="flex-between h-18 px-4 bg-transparent gap-x-6 max-w-7xl w-full mx-auto">

@@ -1,12 +1,14 @@
 import type { PropsWithChildren } from 'react';
 
+import { AI } from '../_actions/ai';
+
 import { AdminHeader } from '@/components/layouts/admin-header';
 import { AdminSidebar } from '@/components/layouts/admin-sidebar';
 import { RefreshOnFocus } from '@/components/shared/RefreshOnFocus';
 
 export default async function AdminLayout({ children }: PropsWithChildren) {
   return (
-    <>
+    <AI>
       <RefreshOnFocus />
       <div className="flex min-h-screen w-full">
         <AdminSidebar />
@@ -17,6 +19,6 @@ export default async function AdminLayout({ children }: PropsWithChildren) {
           </main>
         </div>
       </div>
-    </>
+    </AI>
   );
 }

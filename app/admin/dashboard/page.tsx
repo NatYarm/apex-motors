@@ -8,9 +8,9 @@ export default async function AdminDashboardPage() {
   const chartData = getChartData();
 
   return (
-    <div className="">
+    <>
       <KPICards data={dashboardData} />
       <SalesChart data={chartData} />
-    </div>
+    </>
   );
 }

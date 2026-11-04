@@ -81,7 +81,7 @@
   --secondary: oklch(0.28 0.02 248);
   --secondary-foreground: var(--foreground);
 
-  --muted: oklch(0.27 0.015 248);
+  --muted: oklch(49.665% 0.03162 250.0189);
   --muted-foreground: oklch(0.74 0.015 250);
 
   --accent: oklch(0.31 0.03 245);
@@ -219,6 +219,10 @@ h6 {
   }
   body {
     @apply bg-background text-foreground;
+  }
+  button:not(:disabled),
+  [role='button']:not(:disabled) {
+    cursor: pointer;
   }
 }
 
